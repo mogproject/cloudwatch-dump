@@ -12,6 +12,9 @@ setup(
         'python-dateutil',
         'boto',
     ],
+    tests_require=[
+        'moto',
+    ],
     package_dir={'': 'src'},
     packages=find_packages('src'),
     include_package_data=True,
