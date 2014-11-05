@@ -4,6 +4,7 @@ cloudwatch-dump
 Just dump all the CloudWatch metrics.
 
 [![Build Status](https://travis-ci.org/mogproject/cloudwatch-dump.svg?branch=master)](https://travis-ci.org/mogproject/cloudwatch-dump)
+[![Coverage Status](https://img.shields.io/coveralls/mogproject/cloudwatch-dump.svg)](https://coveralls.io/r/mogproject/cloudwatch-dump?branch=master)
 
 
 ### This script does ...
