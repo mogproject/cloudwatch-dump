@@ -5,7 +5,7 @@ Just dump all the CloudWatch metrics.
 
 [![Build Status](https://travis-ci.org/mogproject/cloudwatch-dump.svg?branch=master)](https://travis-ci.org/mogproject/cloudwatch-dump)
 [![Coverage Status](https://img.shields.io/coveralls/mogproject/cloudwatch-dump.svg)](https://coveralls.io/r/mogproject/cloudwatch-dump?branch=master)
-
+[![Stories in Ready](https://badge.waffle.io/mogproject/cloudwatch-dump.svg?label=ready&title=Ready)](http://waffle.io/mogproject/cloudwatch-dump) 
 
 ### This script does ...
 
