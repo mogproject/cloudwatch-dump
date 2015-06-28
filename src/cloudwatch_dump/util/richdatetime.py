@@ -1,5 +1,3 @@
-import time
-import pytz
 import calendar
 from datetime import datetime, timedelta
 from dateutil.tz import tzlocal
@@ -20,7 +18,7 @@ class RichDateTime(datetime):
     def to_local(self):
         """Return new instance with local timezone."""
         return self.from_datetime(self, tzlocal())
-  
+
     def __mod__(self, time_unit):
         """Cut remainder of modulus by time_unit"""
         if not isinstance(time_unit, timedelta):

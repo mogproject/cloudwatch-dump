@@ -18,7 +18,7 @@ def get_time_range(time_str, interval):
     else:
         # get current time in localtime
         t = (RichDateTime.now() % d) - d
-    return (t, t + d)
+    return t, t + d
 
 
 def get_metrics(region):
@@ -66,7 +66,7 @@ def get_metric_statistics(metric, start_time, end_time, statistics, unit, period
     def f(datapoint):
         # read timestamp as UTC
         t = RichDateTime.from_datetime(datapoint['Timestamp'], pytz.utc)
-        return (metric, statistics, datapoint[statistics], t)
+        return metric, statistics, datapoint[statistics], t
 
     return map(f, datapoints)
 
