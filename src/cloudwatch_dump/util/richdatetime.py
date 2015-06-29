@@ -1,8 +1,7 @@
-import time
-import pytz
 import calendar
 from datetime import datetime, timedelta
 from dateutil.tz import tzlocal
+import pytz
 
 
 class RichDateTime(datetime):
@@ -20,7 +19,11 @@ class RichDateTime(datetime):
     def to_local(self):
         """Return new instance with local timezone."""
         return self.from_datetime(self, tzlocal())
-  
+
+    def to_utc(self):
+        """Return new instance with utc timezone."""
+        return self.from_datetime(self, pytz.utc)
+
     def __mod__(self, time_unit):
         """Cut remainder of modulus by time_unit"""
         if not isinstance(time_unit, timedelta):
@@ -32,7 +35,7 @@ class RichDateTime(datetime):
         return self.from_datetime(self - timedelta(seconds=rem, microseconds=self.microsecond))
 
     @classmethod
-    def from_datetime(self, dt, tzinfo=None):
+    def from_datetime(cls, dt, tzinfo=None):
         """Return RichDateTime instance from datetime instance."""
         if tzinfo:
             if dt.tzinfo:  # dt is aware
@@ -45,11 +48,11 @@ class RichDateTime(datetime):
         return RichDateTime(dt.year, dt.month, dt.day, dt.hour, dt.minute, dt.second, dt.microsecond, dt.tzinfo)
 
     @classmethod
-    def now(self, tzinfo=tzlocal()):
+    def now(cls, tzinfo=tzlocal()):
         """Get current datetime with timezone info."""
-        return self.from_datetime(datetime.now(tzinfo))
+        return cls.from_datetime(datetime.now(tzinfo))
 
     @classmethod
-    def strptime(self, date_string, format, tzinfo=tzlocal()):
+    def strptime(cls, date_string, format, tzinfo=tzlocal()):
         """Return an aware datetime corresponding to date_string, parsed according to format."""
-        return self.from_datetime(datetime.strptime(date_string, format), tzinfo=tzinfo)
+        return cls.from_datetime(datetime.strptime(date_string, format), tzinfo=tzinfo)

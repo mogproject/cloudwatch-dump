@@ -1,5 +1,5 @@
 import unittest
-from cloudwatchdump.util import RichDateTime
+from cloudwatch_dump.util import RichDateTime
 import pytz
 import time
 from datetime import datetime, timedelta
