@@ -7,7 +7,7 @@ def get_version():
     import sys
 
     sys.path[:0] = [SRC_DIR]
-    return __import__('cloudwatch_dump.cloudwatch_dump').__version__
+    return __import__('cloudwatch_dump').__version__
 
 
 setup(
